@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulator Interaktif | Series Untuk Mahasiswa</title>
+    <meta name="description" content="Simulator interaktif phasor, impedansi RLC, dan power triangle untuk pembelajaran Teknik Elektro.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Sora', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' },
+                        voltage: '#3b82f6',
+                        current: '#ef4444',
+                        impedance: '#22c55e',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        .simulator-container {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .control-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #334155;
+            outline: none;
+        }
+        .control-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        .canvas-container {
+            background: #0f172a;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+        .value-display {
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-teal-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-bolt text-white text-lg"></i>
+                    </div>
+                    <span class="font-display font-bold text-xl text-white">SeriesUntukMahasiswa</span>
+                </a>
+                
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-400 hover:text-white transition-colors">Beranda</a>
+                    <a href="simulator.html" class="text-white font-medium">Simulator</a>
+                    <a href="index.html#modul" class="text-slate-400 hover:text-white transition-colors">Modul</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 simulator-container">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="inline-block px-4 py-1 bg-primary-600/20 text-primary-400 rounded-full text-sm font-medium mb-4">
+                    Interactive Learning
+                </span>
+                <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+                    Simulator Interaktif
+                </h1>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    Eksperimen dengan phasor, impedansi, dan daya secara real-time. 
+                    Geser parameter dan lihat perubahannya!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator Tabs -->
+    <section class="py-8 bg-slate-100 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="sim-tab active px-6 py-3 rounded-xl font-medium transition-all bg-primary-600 text-white" data-sim="phasor">
+                    <i class="fas fa-sync-alt mr-2"></i>Phasor Simulator
+                </button>
+                <button class="sim-tab px-6 py-3 rounded-xl font-medium transition-all bg-white text-slate-600 hover:bg-slate-50" data-sim="impedance">
+                    <i class="fas fa-calculator mr-2"></i>Kalkulator Impedansi
+                </button>
+                <button class="sim-tab px-6 py-3 rounded-xl font-medium transition-all bg-white text-slate-600 hover:bg-slate-50" data-sim="power">
+                    <i class="fas fa-chart-pie mr-2"></i>Power Triangle
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phasor Simulator -->
+    <section id="sim-phasor" class="simulator-section py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Controls -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h3 class="font-display font-bold text-lg text-slate-900 mb-6">
+                            <i class="fas fa-sliders-h text-primary-600 mr-2"></i>Kontrol Parameter
+                        </h3>
+                        
+                        <!-- Frequency -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Frekuensi (f)</label>
+                                <span class="value-display text-sm text-primary-600" id="freq-value">50 Hz</span>
+                            </div>
+                            <input type="range" class="control-slider" id="freq-slider" min="1" max="100" value="50">
+                        </div>
+                        
+                        <!-- Amplitude -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Amplitudo (Vm)</label>
+                                <span class="value-display text-sm text-primary-600" id="amp-value">100 V</span>
+                            </div>
+                            <input type="range" class="control-slider" id="amp-slider" min="10" max="200" value="100">
+                        </div>
+                        
+                        <!-- Phase Angle -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Sudut Fasa (φ)</label>
+                                <span class="value-display text-sm text-primary-600" id="phase-value">0°</span>
+                            </div>
+                            <input type="range" class="control-slider" id="phase-slider" min="-180" max="180" value="0">
+                        </div>
+                        
+                        <!-- Animation Speed -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Kecepatan Animasi</label>
+                                <span class="value-display text-sm text-primary-600" id="speed-value">1x</span>
+                            </div>
+                            <input type="range" class="control-slider" id="speed-slider" min="0" max="3" step="0.1" value="1">
+                        </div>
+                        
+                        <!-- Play/Pause -->
+                        <div class="flex gap-3">
+                            <button id="play-btn" class="flex-1 px-4 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors">
+                                <i class="fas fa-pause mr-2"></i>Pause
+                            </button>
+                            <button id="reset-btn" class="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-300 transition-colors">
+                                <i class="fas fa-redo"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Equation Display -->
+                    <div class="bg-slate-900 rounded-2xl p-6 text-white">
+                        <h4 class="font-semibold mb-4">Persamaan Sinyal</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="p-3 bg-slate-800 rounded-lg">
+                                <span class="text-slate-400">Time Domain:</span>
+                                <div class="value-display text-lg mt-1" id="time-eq">v(t) = 100 sin(314t)</div>
+                            </div>
+                            <div class="p-3 bg-slate-800 rounded-lg">
+                                <span class="text-slate-400">Phasor Domain:</span>
+                                <div class="value-display text-lg mt-1" id="phasor-eq">V = 100∠0° V</div>
+                            </div>
+                            <div class="p-3 bg-slate-800 rounded-lg">
+                                <span class="text-slate-400">RMS Value:</span>
+                                <div class="value-display text-lg mt-1" id="rms-value">Vrms = 70.71 V</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visualization -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Phasor Diagram -->
+                    <div class="canvas-container p-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-white font-semibold">
+                                <i class="fas fa-vector-square text-primary-400 mr-2"></i>Diagram Phasor
+                            </h3>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-voltage"><i class="fas fa-circle text-xs mr-1"></i>Tegangan (V)</span>
+                            </div>
+                        </div>
+                        <canvas id="phasor-canvas" width="600" height="400" class="w-full rounded-lg"></canvas>
+                    </div>
+                    
+                    <!-- Sine Wave -->
+                    <div class="canvas-container p-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-white font-semibold">
+                                <i class="fas fa-wave-square text-primary-400 mr-2"></i>Gelombang Sinus
+                            </h3>
+                            <span class="text-slate-400 text-sm">Satu periode (T = <span id="period-value">20</span> ms)</span>
+                        </div>
+                        <canvas id="wave-canvas" width="600" height="250" class="w-full rounded-lg"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impedance Calculator -->
+    <section id="sim-impedance" class="simulator-section py-12 hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Input Parameters -->
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h3 class="font-display font-bold text-lg text-slate-900 mb-6">
+                            <i class="fas fa-cog text-primary-600 mr-2"></i>Parameter Rangkaian
+                        </h3>
+                        
+                        <!-- Resistance -->
+                        <div class="mb-6 p-4 bg-red-50 rounded-xl border border-red-100">
+                            <div class="flex items-center justify-between mb-3">
+                                <label class="font-medium text-red-700">
+                                    <i class="fas fa-minus mr-2"></i>Resistor (R)
+                                </label>
+                                <span class="value-display text-red-600 font-bold" id="r-value">10 Ω</span>
+                            </div>
+                            <input type="range" class="control-slider" id="r-slider" min="0" max="100" value="10" style="background: #fecaca;">
+                            <p class="text-xs text-red-600/70 mt-2">Fase: 0° (tegangan dan arus sefase)</p>
+                        </div>
+                        
+                        <!-- Inductance -->
+                        <div class="mb-6 p-4 bg-green-50 rounded-xl border border-green-100">
+                            <div class="flex items-center justify-between mb-3">
+                                <label class="font-medium text-green-700">
+                                    <i class="fas fa-ring mr-2"></i>Induktor (L)
+                                </label>
+                                <span class="value-display text-green-600 font-bold" id="l-value">100 mH</span>
+                            </div>
+                            <input type="range" class="control-slider" id="l-slider" min="0" max="500" value="100" style="background: #bbf7d0;">
+                            <div class="flex justify-between text-xs text-green-600/70 mt-2">
+                                <span>XL = <span id="xl-value">31.42</span> Ω</span>
+                                <span>Fase: +90°</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Capacitance -->
+                        <div class="mb-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                            <div class="flex items-center justify-between mb-3">
+                                <label class="font-medium text-blue-700">
+                                    <i class="fas fa-bolt mr-2"></i>Kapasitor (C)
+                                </label>
+                                <span class="value-display text-blue-600 font-bold" id="c-value">100 µF</span>
+                            </div>
+                            <input type="range" class="control-slider" id="c-slider" min="0" max="500" value="100" style="background: #bfdbfe;">
+                            <div class="flex justify-between text-xs text-blue-600/70 mt-2">
+                                <span>XC = <span id="xc-value">31.83</span> Ω</span>
+                                <span>Fase: -90°</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Frequency -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Frekuensi (f)</label>
+                                <span class="value-display text-sm text-primary-600" id="z-freq-value">50 Hz</span>
+                            </div>
+                            <input type="range" class="control-slider" id="z-freq-slider" min="1" max="100" value="50">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results -->
+                <div class="space-y-6">
+                    <!-- Impedance Display -->
+                    <div class="bg-slate-900 rounded-2xl p-6 text-white">
+                        <h4 class="font-semibold mb-4">Hasil Perhitungan Impedansi</h4>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-4 bg-slate-800 rounded-xl text-center">
+                                    <div class="text-slate-400 text-sm mb-1">Impedansi (Z)</div>
+                                    <div class="value-display text-2xl text-primary-400" id="z-mag">10.00 Ω</div>
+                                </div>
+                                <div class="p-4 bg-slate-800 rounded-xl text-center">
+                                    <div class="text-slate-400 text-sm mb-1">Sudut Fasa (θ)</div>
+                                    <div class="value-display text-2xl text-accent" id="z-angle">0.00°</div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-slate-800 rounded-xl">
+                                <div class="text-slate-400 text-sm mb-2">Bentuk Rectangular:</div>
+                                <div class="value-display text-xl" id="z-rect">Z = 10.00 + j0.00 Ω</div>
+                            </div>
+                            <div class="p-4 bg-slate-800 rounded-xl">
+                                <div class="text-slate-400 text-sm mb-2">Bentuk Polar:</div>
+                                <div class="value-display text-xl" id="z-polar">Z = 10.00∠0.00° Ω</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Impedance Diagram -->
+                    <div class="canvas-container p-4">
+                        <h3 class="text-white font-semibold mb-4">
+                            <i class="fas fa-chart-area text-primary-400 mr-2"></i>Diagram Impedansi
+                        </h3>
+                        <canvas id="impedance-canvas" width="500" height="400" class="w-full rounded-lg"></canvas>
+                    </div>
+                    
+                    <!-- Component Values -->
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h4 class="font-semibold text-slate-900 mb-4">Nilai Komponen</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
+                                <span class="text-slate-600">Resistansi (R)</span>
+                                <span class="value-display font-medium" id="display-r">10 Ω</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                                <span class="text-green-700">Reaktansi Induktif (XL)</span>
+                                <span class="value-display font-medium text-green-700" id="display-xl">31.42 Ω</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                                <span class="text-blue-700">Reaktansi Kapasitif (XC)</span>
+                                <span class="value-display font-medium text-blue-700" id="display-xc">31.83 Ω</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-slate-100 rounded-lg">
+                                <span class="text-slate-800 font-medium">Reaktansi Total (X)</span>
+                                <span class="value-display font-bold" id="display-x">-0.41 Ω</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Power Triangle -->
+    <section id="sim-power" class="simulator-section py-12 hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Controls -->
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <h3 class="font-display font-bold text-lg text-slate-900 mb-6">
+                            <i class="fas fa-sliders-h text-primary-600 mr-2"></i>Parameter Daya
+                        </h3>
+                        
+                        <!-- Apparent Power -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Daya Semu (S)</label>
+                                <span class="value-display text-sm text-primary-600" id="s-value">1000 VA</span>
+                            </div>
+                            <input type="range" class="control-slider" id="s-slider" min="100" max="5000" value="1000">
+                        </div>
+                        
+                        <!-- Power Factor -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Faktor Daya (cos φ)</label>
+                                <span class="value-display text-sm text-primary-600" id="pf-value">0.80</span>
+                            </div>
+                            <input type="range" class="control-slider" id="pf-slider" min="0.1" max="1" step="0.01" value="0.8">
+                        </div>
+                        
+                        <!-- Phase Angle -->
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-medium text-slate-700">Sudut Fasa (φ)</label>
+                                <span class="value-display text-sm text-primary-600" id="power-angle-value">36.87°</span>
+                            </div>
+                            <input type="range" class="control-slider" id="power-angle-slider" min="0" max="90" step="0.1" value="36.87">
+                        </div>
+                        
+                        <!-- Results -->
+                        <div class="mt-8 space-y-4">
+                            <div class="p-4 bg-orange-50 rounded-xl border border-orange-100">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-orange-700 font-medium">Daya Aktif (P)</span>
+                                    <span class="value-display text-xl text-orange-600 font-bold" id="p-value">800 W</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-xl border border-blue-100">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-blue-700 font-medium">Daya Reaktif (Q)</span>
+                                    <span class="value-display text-xl text-blue-600 font-bold" id="q-value">600 VAR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Interpretation -->
+                    <div class="bg-slate-900 rounded-2xl p-6 text-white">
+                        <h4 class="font-semibold mb-4">Interpretasi</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full" id="pf-indicator" style="background: #22c55e;"></div>
+                                <span id="pf-text">Faktor daya bagus (>0.9 ideal)</span>
+                            </div>
+                            <div class="p-3 bg-slate-800 rounded-lg">
+                                <span class="text-slate-400">Daya yang terbuang:</span>
+                                <div class="value-display text-lg mt-1" id="reactive-percent">60% reaktif</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visualization -->
+                <div class="lg:col-span-2">
+                    <div class="canvas-container p-4 h-full">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-white font-semibold">
+                                <i class="fas fa-draw-polygon text-primary-400 mr-2"></i>Segitiga Daya
+                            </h3>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-orange-400"><i class="fas fa-circle text-xs mr-1"></i>P (Watt)</span>
+                                <span class="text-blue-400"><i class="fas fa-circle text-xs mr-1"></i>Q (VAR)</span>
+                                <span class="text-green-400"><i class="fas fa-circle text-xs mr-1"></i>S (VA)</span>
+                            </div>
+                        </div>
+                        <canvas id="power-canvas" width="700" height="500" class="w-full rounded-lg"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="py-12 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mouse-pointer text-primary-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-slate-900 mb-2">Interaktif</h4>
+                    <p class="text-slate-600 text-sm">Geser slider dan lihat perubahan secara real-time</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-primary-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-slate-900 mb-2">Responsive</h4>
+                    <p class="text-slate-600 text-sm">Bisa diakses dari desktop, tablet, maupun mobile</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-primary-600 text-2xl"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-slate-900 mb-2">Edukatif</h4>
+                    <p class="text-slate-600 text-sm">Didesain untuk membantu pemahaman konsep</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-teal-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-bolt text-white text-lg"></i>
+                    </div>
+                    <span class="font-display font-bold text-xl text-white">SeriesUntukMahasiswa</span>
+                </div>
+                <p class="text-sm">
+                    &copy; 2026 Series Untuk Mahasiswa. Made with <i class="fas fa-heart text-red-500 mx-1"></i> for EE Students
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/simulator.js"></script>
+    
+    <!-- KIMI Chat Widget -->
+    <script>
+        window.KIMI_CHAT_CONFIG = {
+            apiKey: 'YOUR_KIMI_API_KEY',
+            position: 'bottom-right',
+            primaryColor: '#2563eb',
+            welcomeMessage: 'Halo! Ada yang bisa saya bantu tentang simulator ini?',
+            placeholder: 'Tanyakan tentang phasor, impedansi, atau daya...',
+            systemContext: 'Anda adalah asisten AI untuk simulator Teknik Elektro. Bantu pengguna memahami cara menggunakan simulator phasor, kalkulator impedansi, dan power triangle.',
+            suggestedQuestions: [
+                'Cara membaca diagram phasor?',
+                'Bagaimana menghitung impedansi total?',
+                'Apa itu faktor daya?'
+            ]
+        };
+    </script>
+    <script src="js/kimi-chat-widget.js"></script>
+</body>
+</html>
