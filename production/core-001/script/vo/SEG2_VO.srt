@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:14,800
+Di sistem 3-fasa ada 3 gelombang, beda 120°.
+
+2
+00:00:15,000 --> 00:00:29,800
+Pertanyaan simpel: berapa total tegangan di titik ini?
+
+3
+00:00:30,000 --> 00:01:09,800
+Coba cara manual...
+
+4
+00:01:10,000 --> 00:01:24,800
+v_total = 100 sin(ωt) + ... → 7-10 menit kerja.
+
+5
+00:01:25,000 --> 00:01:29,800
+Kalau ada 10 beban? IMPOSSIBLE.
+
+6
+00:01:30,000 --> 00:01:39,800
+Sekarang lihat perbandingan nyata.
+
+7
+00:01:40,000 --> 00:02:04,800
+Load flow 100 bus: trigonometri = 1500-3000 langkah, beberapa hari.
+
+8
+00:02:05,000 --> 00:02:24,800
+Phasor kompleks: 300 operasi sederhana, 10 menit dengan komputer.
+
+9
+00:02:25,000 --> 00:02:39,800
+KESIMPULAN: trigonometri manual tidak praktis.
+
+10
+00:02:40,000 --> 00:05:29,800
+Phasor kompleks = SATU-SATUNYA cara feasible.
+
+11
+00:05:30,000 --> 00:05:39,800
+Jadi pertanyaannya bukan 'kenapa kompleks?'
+
+12
+00:05:40,000 --> 00:05:54,800
+Tapi: bagaimana mungkin kita tidak pakai kompleks?
+
+13
+00:05:55,000 --> 00:07:00,000
+Mari ke VISUALISASI.

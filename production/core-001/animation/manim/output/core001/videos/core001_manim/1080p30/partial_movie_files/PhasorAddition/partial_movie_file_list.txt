@@ -1,0 +1,8 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PhasorAddition/3214364683_121112672_223132457.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PhasorAddition/2464368247_192719426_1566075148.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PhasorAddition/2464368247_1859531144_919670379.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PhasorAddition/2464368247_426384228_3500659528.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PhasorAddition/2464368247_2030219318_306273142.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PhasorAddition/2464368247_4133176306_101114693.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PhasorAddition/2464368247_2621872134_1515065456.mp4'

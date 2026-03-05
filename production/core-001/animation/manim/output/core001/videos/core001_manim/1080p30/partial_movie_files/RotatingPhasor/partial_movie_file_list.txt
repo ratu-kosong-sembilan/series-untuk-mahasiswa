@@ -1,0 +1,7 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/RotatingPhasor/3214364683_865457914_223132457.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/RotatingPhasor/2464368247_1423553785_1741517212.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/RotatingPhasor/2464368247_3832493682_3666922840.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/RotatingPhasor/2464368247_1816470102_2837786348.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/RotatingPhasor/2464368247_622247295_3450933586.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/RotatingPhasor/2464368247_2872842549_2703569720.mp4'

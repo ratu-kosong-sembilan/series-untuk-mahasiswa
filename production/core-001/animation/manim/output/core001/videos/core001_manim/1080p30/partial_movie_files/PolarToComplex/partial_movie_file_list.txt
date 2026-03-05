@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/3214364683_3990198147_223132457.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/2464368247_192719426_3958413482.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/2464368247_3652721986_3709738731.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/2464368247_548398471_4048819843.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/2464368247_909918038_3551475850.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/2464368247_2574473371_2274101224.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/2464368247_39101236_2061955197.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/02-MODUL-KONTEN/Output animasi/videos/core001_manim/1080p30/partial_movie_files/PolarToComplex/2464368247_661083400_3655738364.mp4'

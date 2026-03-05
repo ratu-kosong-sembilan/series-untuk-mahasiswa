@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/simulasi-mvp/animator/renders/videos/S1/540p5/partial_movie_files/Segment1/3822012309_2678929070_223132457.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/simulasi-mvp/animator/renders/videos/S1/540p5/partial_movie_files/Segment1/1338753422_1692458623_380387037.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/simulasi-mvp/animator/renders/videos/S1/540p5/partial_movie_files/Segment1/1085075256_3933469915_3802893361.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/simulasi-mvp/animator/renders/videos/S1/540p5/partial_movie_files/Segment1/4024845415_3441083254_369967434.mp4'

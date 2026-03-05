@@ -1,0 +1,3 @@
+file 'D:\Data Ratu\WEB PROJECT FOR BUSSINESS\Series Untuk Mahasiswa\02-MODUL-KONTEN\Output animasi\videos\core001_manim\1080p30\\RotatingPhasor.mp4'
+file 'D:\Data Ratu\WEB PROJECT FOR BUSSINESS\Series Untuk Mahasiswa\02-MODUL-KONTEN\Output animasi\videos\core001_manim\1080p30\\PolarToComplex.mp4'
+file 'D:\Data Ratu\WEB PROJECT FOR BUSSINESS\Series Untuk Mahasiswa\02-MODUL-KONTEN\Output animasi\videos\core001_manim\1080p30\\PhasorAddition.mp4'

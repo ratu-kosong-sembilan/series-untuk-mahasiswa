@@ -1,0 +1,22 @@
+Segment 6 — SIMULASI & APLIKASI (17:00)
+
+Format: timecode - line - cue notes
+
+49:30 "Sekarang eksperimen dengan simulator." [invite]
+50:00 "Slider frekuensi: X_L naik, X_C turun; phasor bergerak." [describe]
+51:00 "Cari resonansi: X_L = X_C, impedansi minimum, phase 0°." [callout]
+52:00 "Set ke 71.2 Hz: lihat |Z| minimum, I maksimum." [observe]
+53:00 "Ubah C: sistem makin kapasitif; prinsip PF correction." [link]
+54:00 "Ubah R: |Z| naik, sudut tetap ditentukan X/R." [note]
+55:00 "Rangkuman: parameter → phasor → perilaku sistem." [tie]
+55:10 Case study PF correction:
+55:20 "Motor 50 kW PF 0.6: S = 83.3 kVA, Q = 66.7 kVAR." [state]
+55:50 "Target PF 0.95: Q_new = 16.5 kVAR; butuh 50.2 kVAR kapasitor." [compute]
+56:20 "C ≈ 1000 µF @ 400 V, 50 Hz." [give]
+56:40 "Sebelum: 50 + j66.7. Sesudah: 50 + j16.5. PF naik, losses turun." [impact]
+57:00 Wrap:
+57:05 "Recap 6 tahap: Fenomena, Visual, Makna, Model, Simulasi, Industri." [enumerate]
+57:30 "Bilangan kompleks = bahasa efisien untuk sistem AC." [assert]
+57:50 "Anda bisa jelaskan, visualisasikan, derive, dan aplikasikan." [affirm]
+58:10 "Download cheatsheet; lanjut ke quiz & project." [CTA]
+58:40 "See you di modul berikutnya." [warm close]

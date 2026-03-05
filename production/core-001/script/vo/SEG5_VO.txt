@@ -1,0 +1,13 @@
+Segment 5 — MODEL MATEMATIS (10:00)
+
+Format: timecode - line - cue notes
+
+38:00 "Gunakan Ohm, KVL, Faraday. Asumsi: steady-state, linear, single frequency." [setup]
+38:30 "Resistor: v = R i → Z_R = R, sefasa." [clean]
+40:30 "Induktor: v = L di/dt → V leads I 90° → Z_L = jωL." [stress 90°]
+42:30 "Kapasitor: i = C dv/dt → I leads V 90° → Z_C = -j/(ωC)." [stress -90°]
+44:30 "RLC series: Z = R + j(ωL − 1/ωC)." [state]
+45:00 "X > 0 induktif, X < 0 kapasitif, X = 0 resonansi." [interpret]
+46:00 "Contoh: R=10, L=50mH, C=100µF, f=50 Hz → Z = 10 − j16.12 = 18.97∠-58.1°." [numbers]
+47:00 "I = 11.6∠58.1° A; PF = cos(58.1°) ≈ 0.53 leading." [interpret]
+48:30 "Cheatsheet: Z_R, Z_L, Z_C, |Z|, ∠Z." [wrap]

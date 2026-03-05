@@ -1,0 +1,10 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'>
+<rect width='100%' height='100%' fill='#F8FAFC' />
+<rect x='0' y='0' width='1920' height='120' fill='#111827' />
+<text x='120' y='80' font-family='Arial, sans-serif' font-size='54' fill='#FFFFFF'>Pertanyaan Utama</text>
+<circle cx='150' cy='228' r='8' fill='#2563EB' />
+<text x='180' y='240' font-family='Arial, sans-serif' font-size='42' fill='#111827'>Kenapa harus bilangan kompleks?</text>
+<circle cx='150' cy='292' r='8' fill='#2563EB' />
+<text x='180' y='304' font-family='Arial, sans-serif' font-size='42' fill='#111827'>Jawaban: satu-satunya cara efisien</text>
+<text x='1580' y='1020' font-family='Arial, sans-serif' font-size='28' fill='#6B7280'>CORE-001</text>
+</svg>

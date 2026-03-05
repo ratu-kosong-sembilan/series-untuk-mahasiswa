@@ -1,0 +1,10 @@
+# This file is used internally by FFMPEG.
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/1697185472_4049504424_223132457.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_1669205008_3044386750.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_3690116713_3665231300.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_1892862545_3693448729.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_92637665_321449713.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_2250404609_1501806807.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_548731573_939729108.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_209775341_612472668.mp4'
+file 'file:D:/Data Ratu/WEB PROJECT FOR BUSSINESS/Series Untuk Mahasiswa/production/core-001/animation/manim/output/videos/core001_vis01_vis02/1080p30/partial_movie_files/VIS01_PhasorRotation/2038921957_2230675760_2512099849.mp4'

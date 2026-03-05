@@ -1,0 +1,10 @@
+segment,scene_id,title,type,source,priority,duration_seconds,needs_animation,key_assets,notes
+PRE-MODULE,PRE-01,Intro hook,stock,slides,2,45,false,slide-01.png,"Establish problem and stakes"
+FENOMENA,FEN-01,Real-world phenomenon,stock,footage,2,60,false,footage-phenomenon.mp4,"Show physical context"
+VISUALISASI,VIS-01,Phasor rotation overview,animation,custom,1,270,true,anim-phasor-rotation,"Key concept visualization (Animation 1)"
+VISUALISASI,VIS-02,Vector projection demo,animation,custom,1,240,true,anim-vector-projection,"Supports intuition (Animation 2)"
+MAKNA,MKN-01,Physical meaning narrative,stock,slides,2,180,false,slide-meaning-01.png,"Bridge visuals to meaning"
+MODEL,MOD-01,Math model setup,stock,slides,2,120,false,slide-equations-01.png,"Introduce symbols & assumptions"
+MODEL,MOD-02,Polar→Complex conversion,animation,custom,1,120,true,anim-polar-to-complex,"Critical transformation (recap)"
+SIMULASI,SIM-01,Simulator walkthrough,screen,recording,2,300,false,sim-demo.mp4,"Step-by-step usage"
+SIMULASI,SIM-02,Parameter sweep result,animation,custom,1,120,true,anim-parameter-sweep,"Result patterns"

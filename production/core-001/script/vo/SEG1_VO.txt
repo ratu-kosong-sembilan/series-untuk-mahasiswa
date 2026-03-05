@@ -1,0 +1,24 @@
+Segment 1 — PRE-MODULE & HOOK (09:00)
+
+Format: timecode - line - cue notes
+
+00:00 Hook: "Bayangkan menjumlahkan dua gelombang sinus beda fase." [energy]
+00:07 "Trigonometri manual: 5 langkah, 10 menit, rawan error." [contrast]
+00:15 "Bilangan kompleks: satu operasi, 10 detik." [highlight]
+00:22 "Hasilnya sama. Bedanya? Cara kerja." [pause 1s]
+00:28 "Pertanyaan: Kenapa harus bilangan KOMPLEKS?" [lean in]
+00:34 "Jawaban: ini SATU-SATUNYA cara efisien." [firm]
+00:40 "Mari lihat kenapa." [transition]
+00:45 Konteks: "Di kuliah: Rangkaian AC, Sistem Tenaga, Mesin Listrik..." [list]
+01:05 "Di industri: load flow, relay proteksi, power quality." [clip]
+01:20 "Di pekerjaan: power engineer hampir setiap hari." [matter-of-fact]
+01:30 "Masalah: 70% bisa hitung, 80% tidak paham KENAPA." [emphasis]
+01:45 "Itu bedanya hafal vs mengerti. Hari ini kita selesaikan." [resolve]
+02:30 Roadmap: "6 tahap: Fenomena, Visualisasi, Makna, Model, Simulasi, Industri." [pace steady]
+03:00 "Setiap tahap = pemahaman lebih dalam. Bukan hafal rumus." [assure]
+03:20 "Kita butuh 55 menit. Worth it? Absolutely." [smile]
+06:00 Key msg: "Jika Anda pernah bertanya: kenapa pakai j kalau sistem nyata?" [callout]
+06:20 "Apa bedanya Laplace vs manual? Kenapa power factor penting?" [enumerate]
+06:40 "Jawabannya mulai dari sini: memahami bilangan kompleks." [anchor]
+07:00 "Setelah ini: Anda nyaman, bisa jelaskan, tidak takut lagi." [promise]
+08:30 "Mari mulai." [close segment]

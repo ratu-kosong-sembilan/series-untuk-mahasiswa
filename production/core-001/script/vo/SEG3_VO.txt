@@ -1,0 +1,21 @@
+Segment 3 — VISUALISASI (11:00)
+
+Format: timecode - line - cue notes
+
+16:00 "Setiap gelombang sinus punya asal: vektor berputar." [state]
+16:15 "Saat vektor berputar, proyeksinya = gelombang sinus." [link]
+16:35 "Setiap titik di sinus = snapshot posisi vektor." [highlight]
+18:00 Animation 1 intro: "Lihat vektor V₁ merah, V₂ biru, berputar sama ω." [guide]
+18:30 "Proyeksi ke sumbu Y → gelombang sinus." [point]
+19:00 "Tambah vektor = tambah gelombang." [bridge]
+20:30 "Resultan hijau: magnitude & fase baru langsung terbaca." [show]
+21:30 "Penjumlahan vektor jauh lebih mudah dari trig." [conclude]
+22:00 Animation 2 intro: "Vektor di polar: R, θ. Proyeksi: R cosθ, R sinθ." [teach]
+22:40 "X-axis jadi Real; Y-axis jadi Imag (×j)." [label]
+23:00 "Z = R cosθ + j R sinθ." [state]
+23:30 "Dalam Euler: Z = R e^(jθ)." [flash]
+24:30 "Satu vektor, empat representasi: visual, rectangular, polar, Euler." [compare]
+25:30 "Operasi kompleks = operasi vektor = operasi gelombang." [punch]
+26:30 "Trigonometri: 5 langkah. Vector addition: 1 langkah." [contrast]
+26:50 "Complex algebra adalah alat vector addition." [cap]
+26:55 "Itu kenapa jauh lebih cepat." [segue]

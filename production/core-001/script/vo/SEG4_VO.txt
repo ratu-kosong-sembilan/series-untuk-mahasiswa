@@ -1,0 +1,20 @@
+Segment 4 — MAKNA FISIS (11:00)
+
+Format: timecode - line - cue notes
+
+27:00 "'Imajiner' bukan berarti tidak nyata." [clarify]
+27:20 "Real part: resistif. Imag part: reaktif. Dua-duanya fisik." [stress]
+27:45 "j = operator rotasi 90°." [bold]
+29:00 "Kalikan j empat kali: 0°, 90°, 180°, 270°, balik 360°." [rhythm]
+29:30 "Induktor: V leads I 90° → jωL." [example]
+29:50 "Kapasitor: I leads V 90° → -j/(ωC)." [example]
+32:00 "Rectangular vs polar: kapan dipakai?" [ask]
+32:15 "Rectangular untuk tambah/kurang; Polar untuk interpretasi magnitude/phase." [answer]
+33:00 "Contoh: Z = 5 + j12 = 13∠67.4°." [state]
+33:20 "Magnitude: oposisi total. Phase: timing V vs I." [interpret]
+35:00 "Power triangle: S = P + jQ." [introduce]
+35:20 "P nyata, Q bolak-balik, S gabungan." [explain]
+36:00 "PF = cosφ; contoh motor 10 kW PF 0.6 → Q 13.33 kVAR." [numbers]
+36:40 "Tambah kapasitor untuk PF correction." [lead]
+37:30 "Rangkuman: Real dissipasi, Imag storage, Magnitude besarnya, Phase timing." [recap]
+37:50 "Semua bisa diukur, semua ada makna fisik." [anchor]

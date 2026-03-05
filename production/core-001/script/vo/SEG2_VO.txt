@@ -1,0 +1,17 @@
+Segment 2 — FENOMENA FISIK (07:00)
+
+Format: timecode - line - cue notes
+
+09:00 "Di sistem 3-fasa ada 3 gelombang, beda 120°." [setup]
+09:15 "Pertanyaan simpel: berapa total tegangan di titik ini?" [pose]
+09:30 "Coba cara manual..." [cue trig steps]
+10:10 "v_total = 100 sin(ωt) + ... → 7-10 menit kerja." [slog]
+10:25 "Kalau ada 10 beban? IMPOSSIBLE." [stress]
+10:30 "Sekarang lihat perbandingan nyata." [transition]
+10:40 "Load flow 100 bus: trigonometri = 1500-3000 langkah, beberapa hari." [slow]
+11:05 "Phasor kompleks: 300 operasi sederhana, 10 menit dengan komputer." [clarity]
+11:25 "KESIMPULAN: trigonometri manual tidak praktis." [declare]
+11:40 "Phasor kompleks = SATU-SATUNYA cara feasible." [underscore]
+14:30 "Jadi pertanyaannya bukan 'kenapa kompleks?'" [hook]
+14:40 "Tapi: bagaimana mungkin kita tidak pakai kompleks?" [drive]
+14:55 "Mari ke VISUALISASI." [transition]

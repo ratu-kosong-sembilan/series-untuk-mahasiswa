@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulasi Transien RLC</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <h1>Simulasi Transien RLC</h1>
+        <p>Eksplorasi perubahan arus dan tegangan terhadap waktu.</p>
+      </div>
+      <div class="status" id="status">Siap</div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="panel-block">
+          <label for="model">Model Rangkaian</label>
+          <select id="model">
+            <option value="rl">RL (Series)</option>
+            <option value="rc">RC (Series)</option>
+            <option value="rlc">RLC (Series)</option>
+          </select>
+        </div>
+
+        <div class="panel-block">
+          <label for="preset">Preset Skenario</label>
+          <select id="preset">
+            <option value="custom">Custom</option>
+            <option value="motor">Motor Start (RL dominan)</option>
+            <option value="cap">Capacitor Switching (RC dominan)</option>
+            <option value="fast">Fast Transient (R kecil, L kecil)</option>
+          </select>
+          <small class="hint">Custom preset akan muncul di dropdown setelah disimpan.</small>
+        </div>
+
+        <div class="panel-block">
+          <label for="customName">Nama preset custom</label>
+          <input type="text" id="customName" placeholder="Contoh: MyPreset-01" />
+          <button id="savePreset">Save preset</button>
+          <button id="deletePreset">Delete preset terpilih</button>
+        </div>
+
+        <div class="panel-block">
+          <label for="inputMode">Input Mode</label>
+          <select id="inputMode">
+            <option value="step">Step</option>
+            <option value="impulse">Impulse</option>
+          </select>
+        </div>
+
+        <div class="panel-block">
+          <label>Hambatan R (Ohm): <span id="rVal">10</span></label>
+          <input type="range" id="r" min="0.1" max="100" step="0.1" value="10" />
+        </div>
+
+        <div class="panel-block">
+          <label>Induktansi L (H): <span id="lVal">0.1</span></label>
+          <input type="range" id="l" min="0.001" max="1" step="0.001" value="0.1" />
+        </div>
+
+        <div class="panel-block">
+          <label>Kapasitansi C (F): <span id="cVal">0.001</span></label>
+          <input type="range" id="c" min="0.000001" max="0.01" step="0.000001" value="0.001" />
+        </div>
+
+        <div class="panel-block">
+          <label>Step Tegangan V (V): <span id="vVal">220</span></label>
+          <input type="range" id="v" min="1" max="500" step="1" value="220" />
+        </div>
+
+        <div class="panel-block buttons">
+          <button id="run">Jalankan</button>
+          <button id="pause">Jeda</button>
+          <button id="reset">Reset</button>
+        </div>
+
+        <div class="panel-block toggles">
+          <label><input type="checkbox" id="showDidt" checked /> Tampilkan di/dt</label>
+          <label><input type="checkbox" id="showIntegral" checked /> Tampilkan Integral</label>
+        </div>
+
+        <div class="panel-block">
+          <button id="exportCsv">Export CSV</button>
+        </div>
+
+        <div class="tips">
+          <strong>Tips:</strong>
+          <ul>
+            <li>R besar: redaman lebih cepat.</li>
+            <li>L besar: respon lebih lambat.</li>
+            <li>Prediksi dulu sebelum lihat hasil.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="charts">
+        <div class="chart-card">
+          <h3>i(t) - Arus (A)</h3>
+          <div class="legend">
+            <span class="dot red"></span>
+            <span>Arus</span>
+            <span class="value" id="legendI">0</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chartI" width="900" height="220"></canvas>
+            <div class="tooltip" id="tipI"></div>
+            <div class="crosshair" id="crossI"></div>
+            <div class="x-label">Time (s)</div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3>v(t) - Tegangan (V)</h3>
+          <div class="legend">
+            <span class="dot blue"></span>
+            <span>Tegangan</span>
+            <span class="value" id="legendV">0</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chartV" width="900" height="220"></canvas>
+            <div class="tooltip" id="tipV"></div>
+            <div class="crosshair" id="crossV"></div>
+            <div class="x-label">Time (s)</div>
+          </div>
+        </div>
+        <div class="chart-card" id="cardDidt">
+          <h3>di/dt - Laju Perubahan Arus (A/s)</h3>
+          <div class="legend">
+            <span class="dot orange"></span>
+            <span>di/dt</span>
+            <span class="value" id="legendDidt">0</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chartDidt" width="900" height="220"></canvas>
+            <div class="tooltip" id="tipDidt"></div>
+            <div class="crosshair" id="crossDidt"></div>
+            <div class="x-label">Time (s)</div>
+          </div>
+        </div>
+        <div class="chart-card" id="cardInt">
+          <h3>Integral i dt - Akumulasi Muatan (C)</h3>
+          <div class="legend">
+            <span class="dot green"></span>
+            <span>Integral</span>
+            <span class="value" id="legendInt">0</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chartInt" width="900" height="220"></canvas>
+            <div class="tooltip" id="tipInt"></div>
+            <div class="crosshair" id="crossInt"></div>
+            <div class="x-label">Time (s)</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>Matematika = bahasa perubahan. Eksperimen dulu, hitung belakangan.</div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
