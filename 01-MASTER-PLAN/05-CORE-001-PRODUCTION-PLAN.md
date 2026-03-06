@@ -54,7 +54,31 @@ Produksi video long-form 40:00 dan versi Shorts 9:16 (60-90 detik) berikut asset
 6. Editing + QC
 7. Publish + metadata
 
+## Materi Tambahan (Extended Content)
+
+### CORE-001-EXT-01: Latihan Soal Phasor
+- **Kode**: CORE-001-EXT-01
+- **Judul**: Latihan Soal: Konversi Polar-Rectangular
+- **Durasi**: 15:00 (video) + 30:00 (latihan mandiri)
+- **Format**: Video + PDF Worksheet
+- **Status**: 🟡 Pre-Production
+- **Dokumen**: [28-LATIHAN-SOAL-PHASOR.md](./28-LATIHAN-SOAL-PHASOR.md)
+
+**Topik**:
+1. Konversi Polar → Rectangular (A∠θ → a + jb)
+2. Konversi Rectangular → Polar (a + jb → A∠θ)
+3. Penjumlahan phasor
+4. Perkalian dengan j (rotasi 90°)
+
+**Output**:
+- Video penjelasan (YouTube)
+- Worksheet PDF (10 soal + pembahasan)
+- Integrasi ke website (section latihan)
+
+---
+
 ## Changelog
+- 2026-03-05: ⭐ Tambah materi extended "Latihan Soal Phasor" (CORE-001-EXT-01). Alasan: feedback mahasiswa butuh praktik lebih setelah nonton video utama. Dampak: modul lebih komprehensif, ada hands-on practice.
 - 2026-02-06: Menetapkan struktur segmen, style visual, dan pipeline produksi CORE-001.
 - 2026-02-06: Ubah istilah "phase" menjadi "fase" dan "rotating vector" menjadi "vektor berputar". Alasan: konsistensi istilah teknis Indonesia. Dampak: terminologi selaras dengan script, storyboard, dan SRT.
 - 2026-02-06: Ubah "quiz" menjadi "kuis". Alasan: konsistensi istilah Indonesia. Dampak: struktur segmen selaras dengan naskah.
