@@ -1,0 +1,63 @@
+name: Validate EPUB
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - '**.epub'
+  pull_request:
+    paths:
+      - '**.epub'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Download EPUBCheck
+        run: |
+          wget -q https://github.com/w3c/epubcheck/releases/download/v5.3.0/epubcheck-5.3.0.zip
+          unzip -q epubcheck-5.3.0.zip
+          echo "✅ EPUBCheck v5.3.0 siap"
+
+      - name: Cari dan validasi file EPUB
+        run: |
+          EPUB_FILES=$(find . -name "*.epub" -type f)
+          
+          if [ -z "$EPUB_FILES" ]; then
+            echo "⚠️ Tidak ada file .epub ditemukan"
+            exit 0
+          fi
+          
+          echo "📚 File EPUB ditemukan:"
+          echo "$EPUB_FILES"
+          echo ""
+          
+          for file in $EPUB_FILES; do
+            echo "🔍 Validasi: $file"
+            java -jar epubcheck-5.3.0/epubcheck.jar "$file" --json "report-$(basename "$file").json"
+            
+            if [ $? -ne 0 ]; then
+              echo "❌ GAGAL: $file tidak valid!"
+              exit 1
+            else
+              echo "✅ BERHASIL: $file valid"
+            fi
+            echo ""
+          done
+
+      - name: Upload laporan validasi (jika gagal)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: laporan-validasi-epub
+          path: report-*.json
